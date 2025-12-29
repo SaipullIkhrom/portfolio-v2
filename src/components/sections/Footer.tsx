@@ -14,6 +14,7 @@ import {
   ShieldCheck
 } from "lucide-react";
 
+// Footer Component
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const ultraSmoothAnim: HTMLMotionProps<"div"> = {
@@ -41,9 +42,9 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { name: "Github", href: "https://github.com/saipul", icon: <Github size={20} />, hover: "hover:text-white hover:border-white/50" },
-    { name: "Instagram", href: "https://instagram.com/saipul", icon: <Instagram size={20} />, hover: "hover:text-pink-500 hover:border-pink-500/50" },
-    { name: "WhatsApp", href: "https://wa.me/628123456789", icon: <MessageCircle size={20} />, hover: "hover:text-green-500 hover:border-green-500/50" },
+    { name: "Github", href: "https://github.com/SaipullIkhrom", icon: <Github size={20} />, hover: "hover:text-white hover:border-white/50" },
+    { name: "Instagram", href: "https://www.instagram.com/saipulikhromm/", icon: <Instagram size={20} />, hover: "hover:text-pink-500 hover:border-pink-500/50" },
+    { name: "WhatsApp", href: "https://wa.me/6289604210396", icon: <MessageCircle size={20} />, hover: "hover:text-green-500 hover:border-green-500/50" },
   ];
 
   return (
