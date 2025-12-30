@@ -8,13 +8,11 @@ import {
   MessageCircle, 
   Mail, 
   MapPin, 
-  Globe, 
   ChevronRight,
   ArrowUpRight,
   ShieldCheck
 } from "lucide-react";
 
-// Footer Component
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const ultraSmoothAnim: HTMLMotionProps<"div"> = {
@@ -41,29 +39,26 @@ const Footer = () => {
     style: { willChange: "transform, opacity, filter" }
   };
 
- const socialLinks = [
-  { 
-    name: "Github", 
-    href: "https://github.com/SaipullIkhrom", 
-    icon: <Github size={20} />, 
-    hover: "hover:text-white hover:border-white/50",
-    target: "_blank" 
-  },
-  { 
-    name: "Instagram", 
-    href: "https://www.instagram.com/saipulikhromm/", 
-    icon: <Instagram size={20} />, 
-    hover: "hover:text-pink-500 hover:border-pink-500/50",
-    target: "_blank" 
-  },
-  { 
-    name: "WhatsApp", 
-    href: "https://wa.me/6289604210396", 
-    icon: <MessageCircle size={20} />, 
-    hover: "hover:text-green-500 hover:border-green-500/50",
-    target: "_blank" 
-  },
-];
+  const socialLinks = [
+    { 
+      name: "Github", 
+      href: "https://github.com/SaipullIkhrom", 
+      icon: <Github size={20} />, 
+      hover: "hover:text-white hover:border-white/50",
+    },
+    { 
+      name: "Instagram", 
+      href: "https://www.instagram.com/saipulikhromm/", 
+      icon: <Instagram size={20} />, 
+      hover: "hover:text-pink-500 hover:border-pink-500/50",
+    },
+    { 
+      name: "WhatsApp", 
+      href: "https://wa.me/6289604210396", 
+      icon: <MessageCircle size={20} />, 
+      hover: "hover:text-green-500 hover:border-green-500/50",
+    },
+  ];
 
   return (
     <footer className="relative bg-black text-zinc-500 pt-32 pb-12 overflow-hidden border-t border-white/5 antialiased">
@@ -81,7 +76,7 @@ const Footer = () => {
           <div className="lg:col-span-4 space-y-8">
             <div className="space-y-4">
               <h3 className="text-white text-3xl font-bold tracking-tighter">
-                SAIPUL<span className="text-blue-500">.</span>DEV
+                Yreaa<span className="text-blue-500">.</span>Dev
               </h3>
               <p className="text-sm leading-relaxed text-zinc-400 max-w-sm">
                 A passionate developer dedicated to creating high-performance web applications 
@@ -90,7 +85,13 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-3">
               {socialLinks.map((social) => (
-                <a key={social.name} href={social.href} className={`group flex items-center justify-center w-11 h-11 rounded-xl bg-zinc-900/50 border border-white/5 transition-all duration-500 ${social.hover}`}>
+                <a 
+                  key={social.name} 
+                  href={social.href} 
+                  target="_blank"         
+                  rel="noopener noreferrer"
+                  className={`group flex items-center justify-center w-11 h-11 rounded-xl bg-zinc-900/50 border border-white/5 transition-all duration-500 ${social.hover}`}
+                >
                   {social.icon}
                 </a>
               ))}
@@ -125,8 +126,8 @@ const Footer = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24"
         >
           {[
-            { icon: <Mail className="text-blue-500" />, label: "Email Me", val: "hello@saipul.dev" },
-            { icon: <MapPin className="text-blue-500" />, label: "Location", val: "Jakarta, Indonesia" },
+            { icon: <Mail className="text-blue-500" />, label: "Email Me", val: "saipulikhrom9@gmail.com" },
+            { icon: <MapPin className="text-blue-500" />, label: "Location", val: "Depok, Indonesia" },
             { icon: <ShieldCheck className="text-blue-500" />, label: "Available", val: "Freelance & Full-time" }
           ].map((card, i) => (
             <div key={i} className="p-8 rounded-2xl bg-zinc-900/30 border border-white/5 hover:border-white/10 transition-colors">
@@ -147,7 +148,7 @@ const Footer = () => {
             className="text-center overflow-hidden"
           >
             <h2 className="text-[14vw] font-black leading-none tracking-[1vw] text-zinc-900 uppercase pointer-events-none hover:text-white transition-all duration-1000">
-              SAIPUL
+              Yreaaa
             </h2>
           </motion.div>
         </div>

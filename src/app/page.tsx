@@ -46,21 +46,18 @@ export default function Home() {
             href: "https://github.com/SaipullIkhrom",
             ariaLabel: "Github",
             target: "_blank",
-            rel: "noopener noreferrer",
           },
           {
             label: "Instagram",
             href: "https://www.instagram.com/saipulikhromm/",
             ariaLabel: "Instagram",
             target: "_blank",
-            rel: "noopener noreferrer",
           },
           {
             label: "WhatsApp",
             href: "https://wa.me/6289604210396",
             ariaLabel: "WhatsApp",
             target: "_blank",
-            rel: "noopener noreferrer",
           },
         ],
       },
@@ -68,55 +65,84 @@ export default function Home() {
     []
   );
 
-  const textLogos: LogoItem[] = useMemo(
-    () => [
-      {
-        node: (
-          <span className="font-black uppercase tracking-tighter text-white/10 hover:text-blue-500 transition-colors">
-            Creative
-          </span>
-        ),
-      },
-      {
-        node: (
-          <span className="font-black uppercase tracking-tighter text-white/10 hover:text-blue-500 transition-colors">
-            Innovation
-          </span>
-        ),
-      },
-      {
-        node: (
-          <span className="font-black uppercase tracking-tighter text-white/10 hover:text-blue-500 transition-colors">
-            Performance
-          </span>
-        ),
-      },
-      {
-        node: (
-          <span className="font-black uppercase tracking-tighter text-white/10 hover:text-blue-500 transition-colors">
-            Scalable
-          </span>
-        ),
-      },
-      {
-        node: (
-          <span className="font-black uppercase tracking-tighter text-white/10 hover:text-blue-500 transition-colors">
-            Excellence
-          </span>
-        ),
-      },
-      {
-        node: (
-          <span className="font-black uppercase tracking-tighter text-white/10 hover:text-blue-500 transition-colors">
-            Saipul.Dev
-          </span>
-        ),
-      },
-    ],
-    []
-  );
+const textLogos: LogoItem[] = useMemo(
+  () => [
+    {
+      node: (
+        <img 
+          src="https://cdn.simpleicons.org/javascript/F7DF1E" 
+          alt="JavaScript" 
+          className="h-10 w-10 grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-500" 
+        />
+      ),
+    },
+    {
+      node: (
+        <img 
+          src="https://cdn.simpleicons.org/typescript/3178C6" 
+          alt="TypeScript" 
+          className="h-10 w-10 grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-500" 
+        />
+      ),
+    },
+    {
+      node: (
+        <img 
+          src="https://cdn.simpleicons.org/react/61DAFB" 
+          alt="React" 
+          className="h-10 w-10 grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-500" 
+        />
+      ),
+    },
+    {
+      node: (
+        <img 
+          src="https://cdn.simpleicons.org/nextdotjs/white" 
+          alt="Next.js" 
+          className="h-10 w-10 grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-500" 
+        />
+      ),
+    },
+    {
+      node: (
+        <img 
+          src="https://cdn.simpleicons.org/tailwindcss/06B6D4" 
+          alt="TailwindCSS" 
+          className="h-10 w-10 grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-500" 
+        />
+      ),
+    },
+    {
+      node: (
+        <img 
+          src="https://cdn.simpleicons.org/framer/white" 
+          alt="Framer Motion" 
+          className="h-10 w-10 grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-500" 
+        />
+      ),
+    },
+    {
+      node: (
+        <img 
+          src="https://cdn.simpleicons.org/nodedotjs/339933" 
+          alt="Node.js" 
+          className="h-10 w-10 grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-500" 
+        />
+      ),
+    },
+    {
+      node: (
+        <img 
+          src="https://cdn.simpleicons.org/prisma/white" 
+          alt="Prisma" 
+          className="h-10 w-10 grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-500" 
+        />
+      ),
+    },
+  ],
+  []
+);
 
-  // Animasi yang dioptimalkan untuk GPU (Hardware Acceleration)
   const ultraSmoothAnim = (
     direction: "left" | "right"
   ): HTMLMotionProps<"div"> => ({
@@ -147,15 +173,12 @@ export default function Home() {
 
   return (
     <main className="bg-black scroll-smooth overflow-x-hidden antialiased">
-      {/* Navigation */}
       <CardNav logo="/img/MY.jpg" items={navItems} />
 
-      {/* Hero Section */}
       <motion.div id="home" {...ultraSmoothAnim("left")}>
         <Hero />
       </motion.div>
 
-      {/* About Section */}
       <motion.div
         id="about"
         {...ultraSmoothAnim("right")}
@@ -164,19 +187,16 @@ export default function Home() {
         <About />
       </motion.div>
 
-      {/* Tech Stack Section */}
       <motion.div {...ultraSmoothAnim("left")}>
         <TechStack />
       </motion.div>
 
-      {/* Projects Section */}
       <motion.div id="projects" {...ultraSmoothAnim("right")}>
         <Projects />
       </motion.div>
 
-      {/* Logo Loop / Running Text Divider */}
       <motion.div
-        className="border-y border-white/5 bg-zinc-950/20 py-20 overflow-hidden"
+        className="border-y border-white/5 bg-zinc-950/20 py-20 overflow-hidden flex flex-col gap-12"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.2 }}
@@ -185,8 +205,19 @@ export default function Home() {
       >
         <LogoLoop
           logos={textLogos}
-          speed={100}
+          speed={50}
           direction="left"
+          logoHeight={60}
+          gap={80}
+          scaleOnHover
+          fadeOut
+          fadeOutColor="#000000"
+        />
+
+        <LogoLoop
+          logos={[...textLogos].reverse()} 
+          speed={40} 
+          direction="right"
           logoHeight={60}
           gap={80}
           scaleOnHover

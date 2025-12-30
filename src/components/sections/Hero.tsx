@@ -60,7 +60,7 @@ const Hero = () => {
           
           <div className="mt-8">
             <h1 className="bg-linear-to-r from-white to-blue-500 bg-clip-text text-6xl font-black tracking-tighter text-transparent md:text-8xl">
-              SaipulDev
+              Yreaa
             </h1>
             <div className="flex items-center gap-4 mt-2">
               <span className="h-px w-10 bg-blue-500" />

@@ -1,16 +1,13 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
-}
-
-@theme {
-  --color-brand-blue: #3b82f6;
-}
-
+/* --- 1. BASE SETUP --- */
 :root {
   background-color: black;
   color: white;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -18,27 +15,62 @@ body {
   overflow-x: hidden;
 }
 
+section {
+  scroll-margin-top: 100px;
+}
+
+/* --- 2. THEME CONFIGURATION (Variables & Animations) --- */
 @theme {
-  @keyframes infinite-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  --animate-infinite-scroll: infinite-scroll 60s linear infinite;
+  /* Colors */
+  --color-brand-blue: #3b82f6;
   --color-project-purple: #8B5CF6;
   --color-project-green: #10B981; 
   --color-project-pink: #EC4899;   
   --color-project-yellow: #FACC15;
   --color-project-cyan: #06B6D4;  
-  --color-project-red: #EF4444;    
+  --color-project-red: #EF4444;
+
+  /* Spacing & Sizes */
+  --spacing-ultrawide: 1400px;
+  --spacing-about-height: 160vh;
+  --spacing-card-tall: 600px;
+  --spacing-hero-tall: 650px;
+  --spacing-125: 31.25rem;
+  --spacing-grid-size: 64px;
+  
+  /* Profile Photo Sizes */
+  --spacing-glow-large: 600px;
+  --spacing-glow-medium: 500px;
+  --spacing-profile-w: 320px;
+  --spacing-profile-h: 450px;
+  --spacing-profile-w-md: 400px;
+  --spacing-profile-h-md: 550px;
+
+  /* Typography */
+  --tracking-ultra-wide: 0.8em;
+  --shadow-blue-dot: 0 0 8px var(--color-blue-500);
+
+  /* Animations */
+  @keyframes infinite-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  --animate-infinite-scroll: infinite-scroll 60s linear infinite;
+  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
 }
 
+/* --- 3. UTILITIES (Custom Classes) --- */
 @utility text-glow-blue {
   text-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 0 30px rgba(59, 130, 246, 0.3);
 }
 
-@theme {
-  --tracking-ultra-wide: 0.8em;
-  --shadow-blue-dot: 0 0 8px var(--color-blue-500);
+@utility text-glow-blue-subtle {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
 }
 
 @utility bg-blue-glow {
@@ -53,30 +85,10 @@ body {
   filter: blur(100px);
 }
 
-@theme {
-  --spacing-125: 31.25rem;
-  --tracking-ultra-wide: 0.8em;
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
-}
-
 @utility bg-glow-mesh {
   background-image: radial-gradient(circle at 50% 50%, var(--color-blue-900), transparent 70%);
   opacity: 0.12;
   filter: blur(80px);
-}
-
-section {
-  scroll-margin-top: 100px;
 }
 
 @utility bg-glow-blue {
@@ -85,6 +97,17 @@ section {
   filter: blur(100px);
 }
 
-@utility text-glow-blue-subtle {
-  text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+/* --- 4. COMPLEX LAYERS (Grid & Masking) --- */
+@layer utilities {
+  .bg-grid-engineering {
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: var(--spacing-grid-size) var(--spacing-grid-size);
+  }
+  
+  .mask-radial-fade {
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+  }
 }

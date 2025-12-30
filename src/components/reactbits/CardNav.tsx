@@ -8,6 +8,8 @@ type CardNavLink = {
   label: string;
   href: string;
   ariaLabel: string;
+  target?: string;
+  rel?: string;  
 };
 
 export type CardNavItem = {
@@ -70,7 +72,8 @@ const CardNav: React.FC<CardNavProps> = ({ logo, items = [] }) => {
           <div className="h-8 w-8 rounded-full bg-blue-500/10 border border-blue-500/20" />
         </div>
 
-        <div className={`grid grid-cols-1 gap-2 p-2 md:grid-cols-3 ${isOpen ? 'block' : 'hidden'}`}>
+        {/* Gunakan grid agar layout tetap rapi saat terbuka */}
+        <div className={`grid grid-cols-1 gap-2 p-2 md:grid-cols-3 ${isOpen ? 'grid' : 'hidden'}`}>
           {items.map((item, i) => (
             <div 
               key={i} 
@@ -81,7 +84,14 @@ const CardNav: React.FC<CardNavProps> = ({ logo, items = [] }) => {
               <p className="text-lg font-bold">{item.label}</p>
               <div className="flex flex-col gap-1">
                 {item.links.map((link, j) => (
-                  <a key={j} href={link.href} className="flex items-center gap-1 text-xs opacity-70 hover:opacity-100">
+                  <a 
+                    key={j} 
+                    href={link.href}
+                    target={link.target || "_self"} 
+                    rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
+                    aria-label={link.ariaLabel}
+                    className="flex items-center gap-1 text-xs opacity-70 hover:opacity-100"
+                  >
                     <GoArrowUpRight /> {link.label}
                   </a>
                 ))}
